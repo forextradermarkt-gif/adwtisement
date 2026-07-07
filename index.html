@@ -1,82 +1,177 @@
-  <!DOCTYPE html>
-<html lang="hi">
-<head>
-     <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1294190469194556');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1294190469194556&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-</head>
-<body>
+/* Reset Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-    <!-- Main Wrapper with Golden Border -->
-    <div class="page-container">
-        
-        <!-- Profile Logo Section -->
-        <div class="logo-section">
-            <div class="logo-circle">
-                <!-- Aap apna logo image yahan laga sakte hain -->
-                <img src="at 1.09.06 AM.jpeg" alt="Logo">
-            </div>
-        </div>
+body {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
 
-        <!-- Title & Crowns -->
-        <div class="title-section">
-            <span class="crown">👑</span>
-            <h1>gujarati trader™</h1>
-            <span class="crown">👑</span>
-        </div>
+/* Mobile-friendly Container with Gold Border */
+.page-container {
+    width: 100%;
+    max-width: 450px; /* Mobile width constraint */
+    background-color: #121212;
+    border: 2px solid #bba15c; /* Golden Border */
+    border-radius: 30px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
 
-        <!-- Subtitle -->
-        <p class="subtitle">✓ Trusted learning community</p>
+/* Logo Circle styling */
+.logo-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
 
-        <!-- Active Members Badge -->
-        <div class="members-badge">
-            👥 Active Members: <span>80,482</span>
-        </div>
+.logo-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #ffd700; /* Gold ring around logo */
+    overflow: hidden;
+    background-color: #023020; /* Dark green background like image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        <!-- Mini Tags -->
-        <div class="tags-container">
-            <div class="tag">24/7 Updates</div>
-            <div class="tag">Free to Join</div>
-        </div>
+.logo-circle img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+}
 
-        <!-- Glowing Telegram Button -->
-        <a href="https://t.me/+sy1piZsSI4lkYzdl" class="telegram-btn" target="_blank">
-            🚀 Join on Telegram <span>+</span>
-        </a>
+/* Title Section with Crowns */
+.title-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
 
-        <!-- Feature List Cards -->
-        <div class="features-list">
-            <div class="feature-item">
-                <span class="check-icon">✓</span> Market Insights & Discussions
-            </div>
-            <div class="feature-item">
-                <span class="check-icon">✓</span> Learn with Experts
-            </div>
-            <div class="feature-item">
-                <span class="check-icon">✓</span> Practical Strategies
-            </div>
-        </div>
+.title-section h1 {
+    font-size: 26px;
+    color: #f3c623; /* Bright Yellow/Gold */
+    font-weight: bold;
+    text-transform: lowercase;
+}
 
-        <!-- Footer Text -->
-        <div class="footer-text">
-            ⚡ Stay Ahead with Smart Learning
-        </div>
+.crown {
+    font-size: 22px;
+}
 
-    </div>
+/* Subtitle */
+.subtitle {
+    color: #a0a0a0;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
 
-</body>
-</html>
+/* Active Members Badge */
+.members-badge {
+    background-color: #1a1a1a;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+    border: 1px solid #2a2a2a;
+}
+
+.members-badge span {
+    color: #00ff88; /* Green number */
+    font-weight: bold;
+}
+
+/* Mini Tags Group */
+.tags-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.tag {
+    background-color: #1a1a1a;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #d0d0d0;
+    border: 1px solid #2a2a2a;
+}
+
+/* Glowing Blue Telegram Button */
+.telegram-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: #00a2ff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    box-shadow: 0px 0px 20px rgba(0, 162, 255, 0.6); /* Glow Effect */
+    transition: transform 0.2s;
+}
+
+.telegram-btn:active {
+    transform: scale(0.98);
+}
+
+.telegram-btn span {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+/* Feature Items/Cards */
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.feature-item {
+    background-color: #161616;
+    border: 1px solid #222222;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: left;
+    font-size: 16px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.check-icon {
+    color: #00ff88; /* Green tick mark */
+    font-weight: bold;
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+/* Footer Bottom Text */
+.footer-text {
+    color: #00a2ff;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}

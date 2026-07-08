@@ -23,6 +23,39 @@
     src="https://www.facebook.com/tr?id=1294190469194556&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+
+    <!-- Custom CSS for Telegram Button Glow and Pop-up Effect -->
+    <style>
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            /* Aapke button ke styles ke hisab se ise adjust kar sakte hain agar zaroorat ho */
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            
+            /* Neon Glow Effect */
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+            
+            /* Pop-up (Zoom-in/out) Animation */
+            animation: pulseGlow 1.8s infinite alternate ease-in-out;
+        }
+
+        /* Animation Keyframes */
+        @keyframes pulseGlow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+            }
+            100% {
+                transform: scale(1.04); /* Halka sa zoom hoga */
+                box-shadow: 0 0 30px rgba(0, 198, 255, 0.9); /* Glow badhega */
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -47,9 +80,9 @@
         <!-- Subtitle -->
         <p class="subtitle">✓ Trusted learning community</p>
 
-        <!-- Active Members Badge -->
+        <!-- Active Members Badge (ID 'memberCount' add kiya hai animation ke liye) -->
         <div class="members-badge">
-            👥 Active Members: <span>100,000</span>
+            👥 Active Members: <span id="memberCount" style="color: #00c853; font-weight: bold;">0</span>
         </div>
 
         <!-- Mini Tags -->
@@ -58,8 +91,8 @@
             <div class="tag">Free to Join</div>
         </div>
 
-        <!-- Glowing Telegram Button -->
-        <a href="https://t.me/+sy1piZsSI4lkYzdl" class="telegram-btn" target="_blank">
+        <!-- Glowing Telegram Button (Click event track karne ke liye onclick lagaya hai) -->
+        <a href="https://t.me/+sy1piZsSI4lkYzdl" class="telegram-btn" target="_blank" onclick="fbq('track', 'Contact');">
             🚀 Join on Telegram <span>+</span>
         </a>
 
@@ -82,6 +115,31 @@
         </div>
 
     </div>
+
+    <!-- Counting Animation JavaScript -->
+    <script>
+        function animateCounter(targetId, start, end, duration) {
+            let obj = document.getElementById(targetId);
+            let current = start;
+            let range = end - start;
+            let increment = Math.ceil(range / (duration / 12));
+            
+            let timer = setInterval(() => {
+                current += increment;
+                if (current >= end) {
+                    clearInterval(timer);
+                    current = end;
+                }
+                // Numbers ko commas ke sath show karne ke liye (e.g. 100,000)
+                obj.textContent = current.toLocaleString('en-US');
+            }, 12);
+        }
+
+        // Page load hote hi animation start ho jayegi (0 se lekar 100,000 tak 2 seconds me)
+        window.addEventListener('DOMContentLoaded', () => {
+            animateCounter("memberCount", 0, 100000, 2000);
+        });
+    </script>
 
 </body>
 </html>

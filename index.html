@@ -1,133 +1,43 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gujarati trader™</title>
-    <link rel="stylesheet" href="style.css">
+<script>
+    function startCounter() {
+        let obj = document.getElementById("memberCount");
+        if (!obj) return;
 
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1294190469194556');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1294190469194556&ev=PageView&noscript=1"
-    /></noscript>
-    <style>
-        .telegram-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
-            animation: pulseGlow 1.8s infinite alternate ease-in-out;
-        }
+        // 1. Pehle tezi se 1 lakh tak pahunchega
+        let start = 99900; // 1 lakh ke thoda peeche se shuru
+        let end = 100000;
+        let duration = 2000;
+        let startTime = null;
 
-        @keyframes pulseGlow {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
-            }
-            100% {
-                transform: scale(1.04);
-                box-shadow: 0 0 30px rgba(0, 198, 255, 0.9);
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            let progress = timestamp - startTime;
+            let current = Math.min(Math.floor((progress / duration) * (end - start) + start), end);
+            obj.innerText = current.toLocaleString('en-US');
+
+            if (progress < duration) {
+                window.requestAnimationFrame(step);
+            } else {
+                // 2. 1 lakh pahunchne ke baad, dhire-dhire badhta rahega
+                startLiveCounter();
             }
         }
-    </style>
-</head>
-<body>
+        window.requestAnimationFrame(step);
+    }
 
-    <div class="page-container">
-        
-        <div class="logo-section">
-            <div class="logo-circle">
-                <img src="at 1.09.06 AM.jpeg" alt="Logo">
-            </div>
-        </div>
+    // Yeh function 1 lakh ke baad har 3 second me 1-1 number badhayega
+    function startLiveCounter() {
+        let obj = document.getElementById("memberCount");
+        setInterval(() => {
+            let currentVal = parseInt(obj.innerText.replace(/,/g, ''));
+            currentVal += 1; // Har 3 second me 1 member badhega
+            obj.innerText = currentVal.toLocaleString('en-US');
+        }, 3000); 
+    }
 
-        <div class="title-section">
-            <span class="crown">👑</span>
-            <h1>gujarati trader™</h1>
-            <span class="crown">👑</span>
-        </div>
-
-        <p class="subtitle">✓ Trusted learning community</p>
-
-        <div class="members-badge">
-            👥 Active Members: <span id="memberCount" style="color: #00c853 !important; font-weight: bold !important; display: inline-block !important;">0</span>
-        </div>
-
-        <div class="tags-container">
-            <div class="tag">24/7 Updates</div>
-            <div class="tag">Free to Join</div>
-        </div>
-
-        <a href="https://t.me/+sy1piZsSI4lkYzdl" class="telegram-btn" target="_blank" onclick="fbq('track', 'Contact');">
-            🚀 Join on Telegram <span>+</span>
-        </a>
-
-        <div class="features-list">
-            <div class="feature-item">
-                <span class="check-icon">✓</span> Market Insights & Discussions
-            </div>
-            <div class="feature-item">
-                <span class="check-icon">✓</span> Learn with Experts
-            </div>
-            <div class="feature-item">
-                <span class="check-icon">✓</span> Practical Strategies
-            </div>
-        </div>
-
-        <div class="footer-text">
-            ⚡ Stay Ahead with Smart Learning
-        </div>
-
-    </div>
-
-    <script>
-        function startCounter() {
-            let obj = document.getElementById("memberCount");
-            if (!obj) return;
-
-            let start = 0;
-            let end = 81000;
-            let duration = 1500; // 1.5 second me khatam hoga
-            let startTime = null;
-
-            function step(timestamp) {
-                if (!startTime) startTime = timestamp;
-                let progress = timestamp - startTime;
-                let current = Math.min(Math.floor((progress / duration) * end), end);
-                
-                // Commas ke sath screen par dikhane ke liye
-                obj.innerText = current.toLocaleString('en-US');
-
-                if (progress < duration) {
-                    window.requestAnimationFrame(step);
-                }
-            }
-            window.requestAnimationFrame(step);
-        }
-
-        // Yeh ensure karega ki sab kuch load hote hi animation chal pade
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", startCounter);
-        } else {
-            startCounter();
-        }
-    </script>
-
-</body>
-</html>
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startCounter);
+    } else {
+        startCounter();
+    }
+</script>

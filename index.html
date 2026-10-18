@@ -8,6 +8,14 @@
 
     <!-- Meta Pixel Code -->
     <script>
+    // Unique Event ID generate karne ke liye function
+    function generateEventId() {
+        return 'evt_' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    }
+    
+    // PageView ke liye unique event ID banana
+    window.pageEventId = generateEventId();
+
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -16,8 +24,10 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+    
     fbq('init', '1808113170219505');
-    fbq('track', 'PageView');
+    // PageView mein event_id pass kiya gaya hai
+    fbq('track', 'PageView', {}, {eventID: window.pageEventId});
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1808113170219505&ev=PageView&noscript=1"
@@ -76,7 +86,8 @@
             <div class="tag">Free to Join</div>
         </div>
 
-        <a href="https://telegram.me/+CnIS6WOJxaplNjZl" class="telegram-btn" target="_blank" onclick="fbq('track', 'Contact');">
+        <!-- Contact click event mein bhi event_id add kar diya gaya hai -->
+        <a href="https://telegram.me/+CnIS6WOJxaplNjZl" class="telegram-btn" target="_blank" onclick="let contactEvtId = generateEventId(); fbq('track', 'Contact', {}, {eventID: contactEvtId});">
             🚀 Join on Telegram <span>+</span>
         </a>
 
@@ -98,52 +109,43 @@
 
     </div>
 
-    <!-- Nayi Live Background Counting Script -->
+    <!-- Live Background Counting Script -->
     <script>
         function startCounter() {
             let obj = document.getElementById("memberCount");
             if (!obj) return;
 
-            let start = 98750; // Yahan se counting fast shuru hogi
-            let end = 100000;  // Pehle 1 Lakh tak tezi se jayega
-            let duration = 2000; // 2 seconds me fast loading poori hogi
+            let start = 98750; 
+            let end = 100000;  
+            let duration = 2000; 
             let startTime = null;
 
             function step(timestamp) {
                 if (!startTime) startTime = timestamp;
                 let progress = timestamp - startTime;
                 
-                // Fast calculation
                 let current = Math.min(Math.floor((progress / duration) * (end - start) + start), end);
                 obj.innerText = current.toLocaleString('en-US');
 
                 if (progress < duration) {
                     window.requestAnimationFrame(step);
                 } else {
-                    // Jab 1 lakh poora ho jaye, tab dhire-dhire badhne wala code shuru ho
                     startInfiniteCounting();
                 }
             }
             window.requestAnimationFrame(step);
         }
 
-        // Yeh function 1 lakh ke baad har 2 second me 1 se 3 member badhayega
         function startInfiniteCounting() {
             let obj = document.getElementById("memberCount");
             setInterval(() => {
-                // Pehle text me se comma (,) hatakar number nikalenge
                 let currentVal = parseInt(obj.innerText.replace(/,/g, ''));
-                
-                // Randomly 1, 2 ya 3 member badhane ke liye
                 let randomIncrease = Math.floor(Math.random() * 3) + 1; 
                 currentVal += randomIncrease;
-                
-                // Naya number wapas comma lagakar screen par show karenge
                 obj.innerText = currentVal.toLocaleString('en-US');
-            }, 2000); // 2000 milliseconds yani har 2 second me badhega
+            }, 2000); 
         }
 
-        // Check load state
         if (document.readyState === "loading") {
             document.addEventListener("DOMContentLoaded", startCounter);
         } else {

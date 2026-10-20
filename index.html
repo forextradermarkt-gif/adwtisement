@@ -8,12 +8,11 @@
 
     <!-- Meta Pixel Code -->
     <script>
-    // Unique Event ID generate karne ke liye function
+    // Unique Event ID Generator (Deduplication & High Match Quality)
     function generateEventId() {
-        return 'evt_' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        return 'evt_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
     }
     
-    // PageView ke liye unique event ID banana
     window.pageEventId = generateEventId();
 
     !function(f,b,e,v,n,t,s)
@@ -25,13 +24,43 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
+    // Pixel Init
     fbq('init', '1808113170219505');
-    // PageView mein event_id pass kiya gaya hai
-    fbq('track', 'PageView', {}, {eventID: window.pageEventId});
+
+    // 1. PageView Event with Full Parameters (Fixes "No parameters detected" error)
+    fbq('track', 'PageView', {
+        page_name: 'Gujarati Trader Landing Page',
+        content_category: 'Trading Community',
+        page_title: document.title,
+        url: window.location.href
+    }, {eventID: window.pageEventId});
+
+    // Function to Track Telegram Join Button Click
+    function trackTelegramClick() {
+        let eventId = generateEventId();
+
+        // 2. Track Subscribe Event with Parameters
+        fbq('track', 'Subscribe', {
+            content_name: 'Telegram Channel Join',
+            content_category: 'Community',
+            status: 'Success',
+            value: 0.00,
+            currency: 'INR'
+        }, {eventID: 'sub_' + eventId});
+
+        // 3. Track Contact Event with Parameters
+        fbq('track', 'Contact', {
+            content_name: 'Telegram Link Click',
+            content_category: 'Social Link',
+            status: 'Clicked'
+        }, {eventID: 'cnt_' + eventId});
+    }
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1808113170219505&ev=PageView&noscript=1"
-    /></noscript>
+    
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1808113170219505&ev=PageView&noscript=1"/>
+    </noscript>
     
     <style>
         .telegram-btn {
@@ -86,8 +115,8 @@
             <div class="tag">Free to Join</div>
         </div>
 
-        <!-- Contact click event mein bhi event_id add kar diya gaya hai -->
-        <a href="https://telegram.me/+CnIS6WOJxaplNjZl" class="telegram-btn" target="_blank" onclick="let contactEvtId = generateEventId(); fbq('track', 'Contact', {}, {eventID: contactEvtId});">
+        <!-- Updated Telegram Button with Full Tracking -->
+        <a href="https://telegram.me/+CnIS6WOJxaplNjZl" class="telegram-btn" target="_blank" onclick="trackTelegramClick();">
             🚀 Join on Telegram <span>+</span>
         </a>
 

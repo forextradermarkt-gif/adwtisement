@@ -3,18 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gujarati trader™</title>
-    <link rel="stylesheet" href="style.css">
+    <title>GUJARATI TRADER - Join Telegram</title>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code Start -->
     <script>
-    // Unique Event ID Generator (Deduplication & High Match Quality)
-    function generateEventId() {
-        return 'evt_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
-    }
-    
-    window.pageEventId = generateEventId();
-
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -25,162 +17,271 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     
     // Pixel Init
-    fbq('init', '1808113170219505');
-
-    // 1. PageView Event with Full Parameters (Fixes "No parameters detected" error)
-    fbq('track', 'PageView', {
-        page_name: 'Gujarati Trader Landing Page',
-        content_category: 'Trading Community',
-        page_title: document.title,
-        url: window.location.href
-    }, {eventID: window.pageEventId});
-
-    // Function to Track Telegram Join Button Click
-    function trackTelegramClick() {
-        let eventId = generateEventId();
-
-        // 2. Track Subscribe Event with Parameters
-        fbq('track', 'Subscribe', {
-            content_name: 'Telegram Channel Join',
-            content_category: 'Community',
-            status: 'Success',
-            value: 0.00,
-            currency: 'INR'
-        }, {eventID: 'sub_' + eventId});
-
-        // 3. Track Contact Event with Parameters
-        fbq('track', 'Contact', {
-            content_name: 'Telegram Link Click',
-            content_category: 'Social Link',
-            status: 'Clicked'
-        }, {eventID: 'cnt_' + eventId});
-    }
+    fbq('init', '1132080309296417');
+    // Automatic PageView Tracking
+    fbq('track', 'PageView');
     </script>
-    
     <noscript>
-        <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1808113170219505&ev=PageView&noscript=1"/>
+        <img height="1" width="1" style="display:none" 
+             src="https://www.facebook.com/tr?id=1132080309296417&ev=PageView&noscript=1"/>
     </noscript>
-    
+    <!-- Meta Pixel Code End -->
+
     <style>
-        .telegram-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
-            animation: pulseGlow 1.8s infinite alternate ease-in-out;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        @keyframes pulseGlow {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
-            }
-            100% {
-                transform: scale(1.04);
-                box-shadow: 0 0 30px rgba(0, 198, 255, 0.9);
-            }
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .card {
+            background-color: #161616;
+            border: 1px solid #282828;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Profile Logo Circle */
+        .logo-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            border: 3px solid #ffb703;
+            padding: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #ffffff;
+        }
+
+        /* Title & Subtitles */
+        .title {
+            color: #ffb703;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .trusted-text {
+            color: #d1d5db;
+            font-size: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Tag Badges */
+        .tags-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            background-color: #1f1f1f;
+            border: 1px solid #333333;
+            color: #e5e7eb;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Telegram CTA Button */
+        .join-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: linear-gradient(180deg, #00aaff 0%, #0077ff 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 136, 204, 0.6);
+        }
+
+        .redirect-text {
+            color: #9ca3af;
+            font-size: 13px;
+            margin: 12px 0 25px 0;
+        }
+
+        /* Features List */
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .feature-item {
+            background-color: #1c1c1c;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+            color: #e5e7eb;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #00d084;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00d084;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Footer Text */
+        .footer-text {
+            color: #00d084;
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
     </style>
 </head>
 <body>
 
-    <div class="page-container">
-        
-        <div class="logo-section">
-            <div class="logo-circle">
-                <img src="at 1.09.06 AM.jpeg" alt="Logo">
-            </div>
+    <div class="card">
+        <!-- Logo Image -->
+        <div class="logo-container">
+            <!-- Updated Logo Image Name -->
+            <img class="logo-img" src="At 1.09.06 AM.jpeg" alt="GUJARATI TRADER Logo">
         </div>
 
-        <div class="title-section">
-            <span class="crown">👑</span>
-            <h1>gujarati trader™</h1>
-            <span class="crown">👑</span>
+        <!-- Title & Subtitle -->
+        <h1 class="title">GUJARATI TRADER</h1>
+        <div class="trusted-text">
+            <span>✅</span> Trusted by thousands of learners
         </div>
 
-        <p class="subtitle">✓ Trusted learning community</p>
-
-        <div class="members-badge">
-            👥 Active Members: <span id="memberCount" style="color: #00c853 !important; font-weight: bold !important; display: inline-block !important;">98,750</span>
-        </div>
-
+        <!-- Badges -->
         <div class="tags-container">
             <div class="tag">24/7 Updates</div>
             <div class="tag">Free to Join</div>
         </div>
 
-        <!-- Updated Telegram Button with Full Tracking -->
-        <a href="https://telegram.me/+CnIS6WOJxaplNjZl" class="telegram-btn" target="_blank" onclick="trackTelegramClick();">
-            🚀 Join on Telegram <span>+</span>
-        </a>
+        <!-- Join Telegram Button -->
+        <button onclick="handleJoinTelegram()" class="join-btn" id="telegramBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            Join Free Telegram
+        </button>
 
+        <!-- Timer -->
+        <p class="redirect-text">Redirecting to Telegram in <span id="countdown">15</span> seconds...</p>
+
+        <!-- Features -->
         <div class="features-list">
             <div class="feature-item">
-                <span class="check-icon">✓</span> Market Insights & Discussions
+                <div class="check-icon">✓</div>
+                <span>Market Insights & Discussions</span>
             </div>
             <div class="feature-item">
-                <span class="check-icon">✓</span> Learn with Experts
+                <div class="check-icon">✓</div>
+                <span>Learn with Experts</span>
             </div>
             <div class="feature-item">
-                <span class="check-icon">✓</span> Practical Strategies
+                <div class="check-icon">✓</div>
+                <span>Practical Strategies</span>
             </div>
         </div>
 
+        <!-- Footer Text -->
         <div class="footer-text">
-            ⚡ Stay Ahead with Smart Learning
+            ⚡ Stay Ahead with Knowledge ⚡
         </div>
-
     </div>
 
-    <!-- Live Background Counting Script -->
     <script>
-        function startCounter() {
-            let obj = document.getElementById("memberCount");
-            if (!obj) return;
+        const TELEGRAM_LINK = "https://t.me/+CnIS6WOJxaplNjZl";
 
-            let start = 98750; 
-            let end = 100000;  
-            let duration = 2000; 
-            let startTime = null;
+        let isRedirected = false;
 
-            function step(timestamp) {
-                if (!startTime) startTime = timestamp;
-                let progress = timestamp - startTime;
-                
-                let current = Math.min(Math.floor((progress / duration) * (end - start) + start), end);
-                obj.innerText = current.toLocaleString('en-US');
+        function handleJoinTelegram() {
+            if (isRedirected) return;
+            isRedirected = true;
 
-                if (progress < duration) {
-                    window.requestAnimationFrame(step);
-                } else {
-                    startInfiniteCounting();
-                }
+            // 1. Meta Pixel Subscribe Event Fire
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Subscribe');
             }
-            window.requestAnimationFrame(step);
+
+            // 2. Redirect to Telegram
+            setTimeout(() => {
+                window.location.href = TELEGRAM_LINK;
+            }, 300);
         }
 
-        function startInfiniteCounting() {
-            let obj = document.getElementById("memberCount");
-            setInterval(() => {
-                let currentVal = parseInt(obj.innerText.replace(/,/g, ''));
-                let randomIncrease = Math.floor(Math.random() * 3) + 1; 
-                currentVal += randomIncrease;
-                obj.innerText = currentVal.toLocaleString('en-US');
-            }, 2000); 
-        }
+        // 15 Second Countdown Timer
+        let timeLeft = 15;
+        const countdownElement = document.getElementById('countdown');
 
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", startCounter);
-        } else {
-            startCounter();
-        }
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownElement.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                handleJoinTelegram();
+            }
+        }, 1000);
     </script>
-
 </body>
 </html>

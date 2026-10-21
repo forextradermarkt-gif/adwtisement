@@ -130,17 +130,12 @@
             cursor: pointer;
             border: none;
             text-align: center;
+            margin-bottom: 25px;
         }
 
         .join-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(0, 136, 204, 0.6);
-        }
-
-        .redirect-text {
-            color: #9ca3af;
-            font-size: 13px;
-            margin: 12px 0 25px 0;
         }
 
         /* Features List */
@@ -173,110 +168,4 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #00d084;
-            font-size: 12px;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        /* Footer Text */
-        .footer-text {
-            color: #00d084;
-            font-size: 16px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="card">
-        <!-- Logo Image -->
-        <div class="logo-container">
-            <img class="logo-img" 
-                 src="logo.jpeg" 
-                 alt="GUJARATI TRADER Logo"
-                 onerror="this.onerror=null; this.src='At%201.09.06%20AM.jpeg';">
-        </div>
-
-        <!-- Title & Subtitle -->
-        <h1 class="title">GUJARATI TRADER</h1>
-        <div class="trusted-text">
-            <span>✅</span> Trusted by thousands of learners
-        </div>
-
-        <!-- Badges -->
-        <div class="tags-container">
-            <div class="tag">24/7 Updates</div>
-            <div class="tag">Free to Join</div>
-        </div>
-
-        <!-- Join Telegram Button (Cleaned up for Pixel Tool) -->
-        <button onclick="handleJoinTelegram()" class="join-btn" id="telegramBtn">
-            ✈️ Join Free Telegram
-        </button>
-
-        <!-- Timer -->
-        <p class="redirect-text">Redirecting to Telegram in <span id="countdown">15</span> seconds...</p>
-
-        <!-- Features -->
-        <div class="features-list">
-            <div class="feature-item">
-                <div class="check-icon">✓</div>
-                <span>Market Insights & Discussions</span>
-            </div>
-            <div class="feature-item">
-                <div class="check-icon">✓</div>
-                <span>Learn with Experts</span>
-            </div>
-            <div class="feature-item">
-                <div class="check-icon">✓</div>
-                <span>Practical Strategies</span>
-            </div>
-        </div>
-
-        <!-- Footer Text -->
-        <div class="footer-text">
-            ⚡ Stay Ahead with Knowledge ⚡
-        </div>
-    </div>
-
-    <script>
-        const TELEGRAM_LINK = "https://t.me/+CnIS6WOJxaplNjZl";
-
-        let isRedirected = false;
-
-        function handleJoinTelegram() {
-            if (isRedirected) return;
-            isRedirected = true;
-
-            // 1. Meta Pixel Subscribe Event Fire
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Subscribe');
-            }
-
-            // 2. Redirect to Telegram
-            setTimeout(() => {
-                window.location.href = TELEGRAM_LINK;
-            }, 300);
-        }
-
-        // 15 Second Countdown Timer
-        let timeLeft = 15;
-        const countdownElement = document.getElementById('countdown');
-
-        const timer = setInterval(() => {
-            timeLeft--;
-            countdownElement.textContent = timeLeft;
-            
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-                handleJoinTelegram();
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
+            color: #0

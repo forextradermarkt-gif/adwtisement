@@ -16,9 +16,7 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // Pixel Init
     fbq('init', '1132080309296417');
-    // Automatic PageView Tracking
     fbq('track', 'PageView');
     </script>
     <noscript>
@@ -68,6 +66,7 @@
             justify-content: center;
             align-items: center;
             background-color: transparent;
+            overflow: hidden;
         }
 
         .logo-img {
@@ -75,7 +74,7 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            background-color: #ffffff;
+            background-color: #161616;
         }
 
         /* Title & Subtitles */
@@ -115,12 +114,9 @@
             font-weight: 500;
         }
 
-        /* Telegram CTA Button */
+        /* Clean Telegram CTA Button for Pixel Setup */
         .join-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            display: block;
             width: 100%;
             background: linear-gradient(180deg, #00aaff 0%, #0077ff 100%);
             color: #ffffff;
@@ -133,6 +129,7 @@
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
             border: none;
+            text-align: center;
         }
 
         .join-btn:hover {
@@ -199,8 +196,10 @@
     <div class="card">
         <!-- Logo Image -->
         <div class="logo-container">
-            <!-- Updated Logo Image Name -->
-            <img class="logo-img" src="logo.jpeg" alt="GUJARATI TRADER Logo">
+            <img class="logo-img" 
+                 src="logo.jpeg" 
+                 alt="GUJARATI TRADER Logo"
+                 onerror="this.onerror=null; this.src='At%201.09.06%20AM.jpeg';">
         </div>
 
         <!-- Title & Subtitle -->
@@ -215,13 +214,9 @@
             <div class="tag">Free to Join</div>
         </div>
 
-        <!-- Join Telegram Button -->
+        <!-- Join Telegram Button (Cleaned up for Pixel Tool) -->
         <button onclick="handleJoinTelegram()" class="join-btn" id="telegramBtn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-            Join Free Telegram
+            ✈️ Join Free Telegram
         </button>
 
         <!-- Timer -->

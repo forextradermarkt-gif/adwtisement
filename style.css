@@ -135,7 +135,7 @@ body {
     cursor: pointer;
     border: none;
     width: 100%;
-}
+} /* <-- यहाँ ब्रैकेट जोड़ा गया है */
 
 .telegram-btn:hover {
     transform: translateY(-2px);
@@ -189,7 +189,7 @@ body {
 /* --- Laptop & Large Screen Enhancements --- */
 @media (min-width: 768px) {
     .page-container {
-        max-width: 520px; /* लैपटॉप पर कार्ड थोड़ा और भव्य दिखेगा */
+        max-width: 520px;
         padding: 40px 30px;
     }
     

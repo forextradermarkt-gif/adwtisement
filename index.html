@@ -263,9 +263,9 @@
             if (isRedirected) return;
             isRedirected = true;
 
-            // 1. Meta Pixel Lead Event Fire
+            // 1. Meta Pixel Subscribe Event Fire
             if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead');
+                fbq('track', 'Subscribe');
             }
 
             // 2. Redirect to Telegram immediately
